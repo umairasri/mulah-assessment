@@ -36,5 +36,5 @@ RUN mkdir -p /var/www/database \
 # Expose port 8000
 EXPOSE 8000
 
-# Start Laravel's built-in server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# Run migrations and start Laravel's built-in server
+CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"]
